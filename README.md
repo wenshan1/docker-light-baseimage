@@ -6,8 +6,12 @@
 
 [hub]: https://hub.docker.com/r/osixia/light-baseimage/
 
-Latest release: 1.0.3 (debian stretch) - 1.0.3 (debian jessie) [Changelog](CHANGELOG.md)
+Latest release: 1.0.2 (debian jessie) [Changelog](CHANGELOG.md)
  | [Docker Hub](https://hub.docker.com/r/osixia/light-baseimage/) 
+
+******
+This version is deprecated and not maintained anymore please refer to the [latest version](https://github.com/osixia/docker-light-baseimage)
+******
 
 A Debian 9 (Stretch) based docker image to build reliable image quickly. This image provide a simple opinionated solution to build multiple or single process image with minimum of layers and an optimized build.
 
@@ -19,52 +23,52 @@ Other base distribution are available:
 
 Table of Contents
 - [osixia/light-baseimage](#osixialight-baseimage)
-  - [Contributing](#contributing)
-  - [Overview](#overview)
-  - [Quick Start](#quick-start)
-    - [Image directories structure](#image-directories-structure)
-    - [Service directory structure](#service-directory-structure)
-    - [Create a single process image](#create-a-single-process-image)
-      - [Overview](#overview-1)
-      - [Dockerfile](#dockerfile)
-      - [Service files](#service-files)
+  - [Contributing](#Contributing)
+  - [Overview](#Overview)
+  - [Quick Start](#Quick-Start)
+    - [Image directories structure](#Image-directories-structure)
+    - [Service directory structure](#Service-directory-structure)
+    - [Create a single process image](#Create-a-single-process-image)
+      - [Overview](#Overview-1)
+      - [Dockerfile](#Dockerfile)
+      - [Service files](#Service-files)
         - [startup.sh](#startupsh)
         - [process.sh](#processsh)
-      - [Environment files](#environment-files)
+      - [Environment files](#Environment-files)
         - [default.yaml](#defaultyaml)
         - [default.startup.yaml](#defaultstartupyaml)
-      - [Build and test](#build-and-test)
-        - [Overriding default environment files at run time:](#overriding-default-environment-files-at-run-time)
-    - [Create a multiple process image](#create-a-multiple-process-image)
-      - [Overview](#overview-2)
-      - [Dockerfile](#dockerfile-1)
-      - [Service files](#service-files-1)
+      - [Build and test](#Build-and-test)
+        - [Overriding default environment files at run time:](#Overriding-default-environment-files-at-run-time)
+    - [Create a multiple process image](#Create-a-multiple-process-image)
+      - [Overview](#Overview-2)
+      - [Dockerfile](#Dockerfile-1)
+      - [Service files](#Service-files-1)
         - [install.sh](#installsh)
         - [process.sh](#processsh-1)
-      - [Build and test](#build-and-test-1)
-  - [Images Based On Light-Baseimage](#images-based-on-light-baseimage)
-  - [Image Assets](#image-assets)
-    - [Tools](#tools)
-    - [Services available](#services-available)
-  - [Advanced User Guide](#advanced-user-guide)
-    - [Service available](#service-available)
-    - [Fix docker mounted file problems](#fix-docker-mounted-file-problems)
-    - [Distribution packages documentation and locales](#distribution-packages-documentation-and-locales)
-    - [Mastering image tools](#mastering-image-tools)
+      - [Build and test](#Build-and-test-1)
+  - [Images Based On Light-Baseimage](#Images-Based-On-Light-Baseimage)
+  - [Image Assets](#Image-Assets)
+    - [Tools](#Tools)
+    - [Services available](#Services-available)
+  - [Advanced User Guide](#Advanced-User-Guide)
+    - [Service available](#Service-available)
+    - [Fix docker mounted file problems](#Fix-docker-mounted-file-problems)
+    - [Distribution packages documentation and locales](#Distribution-packages-documentation-and-locales)
+    - [Mastering image tools](#Mastering-image-tools)
       - [run](#run)
-        - [Run command line options](#run-command-line-options)
-        - [Run directory setup](#run-directory-setup)
-        - [Startup files environment setup](#startup-files-environment-setup)
-        - [Startup files execution](#startup-files-execution)
-        - [Process execution](#process-execution)
-          - [Single process image](#single-process-image)
-          - [Multiple process image](#multiple-process-image)
-          - [No process image](#no-process-image)
-        - [Extra environment variables](#extra-environment-variables)
+        - [Run command line options](#Run-command-line-options)
+        - [Run directory setup](#Run-directory-setup)
+        - [Startup files environment setup](#Startup-files-environment-setup)
+        - [Startup files execution](#Startup-files-execution)
+        - [Process execution](#Process-execution)
+          - [Single process image](#Single-process-image)
+          - [Multiple process image](#Multiple-process-image)
+          - [No process image](#No-process-image)
+        - [Extra environment variables](#Extra-environment-variables)
       - [log-helper](#log-helper)
       - [complex-bash-env](#complex-bash-env)
-    - [Tests](#tests)
-  - [Changelog](#changelog)
+    - [Tests](#Tests)
+  - [Changelog](#Changelog)
 
 ## Contributing
 
@@ -150,7 +154,7 @@ In the Dockerfile we are going to:
 
         # Use osixia/light-baseimage
         # https://github.com/osixia/docker-light-baseimage
-        FROM osixia/light-baseimage:1.0.3
+        FROM osixia/light-baseimage:1.0.2
         MAINTAINER Your Name <your@name.com>
 
         # Download nginx from apt-get and clean apt-get files
@@ -393,7 +397,7 @@ In the Dockerfile we are going to:
 
       # Use osixia/light-baseimage
       # https://github.com/osixia/docker-light-baseimage
-      FROM osixia/light-baseimage:1.0.3
+      FROM osixia/light-baseimage:1.0.2
       MAINTAINER Your Name <your@name.com>
 
       # Install multiple process stack, nginx and php7.0-fpm and clean apt-get files
@@ -595,7 +599,7 @@ Here simple Dockerfile example how to add a service-available to an image:
 
         # Use osixia/light-baseimage
         # https://github.com/osixia/docker-light-baseimage
-        FROM osixia/light-baseimage:1.0.3
+        FROM osixia/light-baseimage:1.0.2
         MAINTAINER Your Name <your@name.com>
 
         # Add cfssl and cron service-available
@@ -665,7 +669,7 @@ What it does:
 
 *Run tool* takes several options, to list them:
 
-    docker run osixia/light-baseimage:1.0.3 --help
+    docker run osixia/light-baseimage:1.0.2 --help
     usage: run [-h] [-e] [-s] [-p] [-f] [-o {startup,process,finish}]
                [-c COMMAND [WHEN={startup,process,finish} ...]] [-k]
                [--wait-state FILENAME] [--wait-first-startup] [--keep-startup-env]
@@ -776,7 +780,7 @@ If a main command is set for example:
 If a main command is set *run tool* launch it otherwise bash is launched.
 Example:
 
-    docker run -it osixia/light-baseimage:1.0.3
+    docker run -it osixia/light-baseimage:1.0.2
 
 
 ##### Extra environment variables
@@ -852,8 +856,8 @@ Note this yaml definition:
 
 Can also be set by command line converted in python or json:
 
-    docker run -it --env FRUITS="#PYTHON2BASH:['orange','apple']" osixia/light-baseimage:1.0.3 printenv
-    docker run -it --env FRUITS="#JSON2BASH:[\"orange\",\"apple\"]" osixia/light-baseimage:1.0.3 printenv
+    docker run -it --env FRUITS="#PYTHON2BASH:['orange','apple']" osixia/light-baseimage:1.0.2 printenv
+    docker run -it --env FRUITS="#JSON2BASH:[\"orange\",\"apple\"]" osixia/light-baseimage:1.0.2 printenv
 
 ### Tests
 
