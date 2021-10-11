@@ -1,5 +1,5 @@
-NAME = osixia/light-baseimage
-VERSION = 1.3.3
+NAME = binlan/light-baseimage
+VERSION = 1.0.0
 
 .PHONY: build build-nocache test tag-latest push push-latest release git-tag-version
 
